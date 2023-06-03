@@ -11,6 +11,10 @@ const routes = [
   path: '/',
   component: () => import('components/auth/LoginForm.vue'),
  },
+ {
+  path: '/register',
+  component: () => import('components/auth/RegisterForm.vue'),
+ },
   // Always leave this as last one,
   // but you can also remove it
   {
