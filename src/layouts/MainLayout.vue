@@ -12,10 +12,12 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Shopping App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn push color="white" text-color="primary" icon="add_shopping_cart">
+          <q-badge color="orange" floating>0</q-badge>
+        </q-btn>
       </q-toolbar>
     </q-header>
 

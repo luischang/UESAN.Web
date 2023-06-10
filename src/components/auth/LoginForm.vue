@@ -43,6 +43,7 @@ export default {
       axios.post(url, data)
         .then(response => {
           console.log("Aquí va la respuesta " + JSON.stringify(response))
+          localStorage.setItem("userResult",JSON.stringify(response.data))
           this.$q.notify({
             message: "Inicio de sesión correcta",
             color: "positive",
@@ -52,6 +53,7 @@ export default {
           this.$router.push("/dashboard")
         }).catch(error => {
           console.log("Ocurrió un error " + error)
+          localStorage.removeItem("userResult")
           this.$q.notify({
             message: "Ocurrió un error",
             color: "negative",
