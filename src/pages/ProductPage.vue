@@ -1,10 +1,10 @@
 <template>
     <div class="product-page">
-        <div class="product-filter">
-
+        <div class="product-filter q-ml-md q-mr-xl">
+            <ProductFilter />
         </div>
 
-        <div class="product-list">
+        <div class="product-list q-mr-md">
             <ProductList />
         </div>
     </div>
@@ -27,11 +27,14 @@
 <script>
 import { defineComponent } from 'vue'
 import ProductList from 'src/components/product/ProductList.vue';
+import ProductFilter from 'src/components/product/ProductFilter.vue';
+
 
 export default defineComponent({
     name: 'ProductPage',
     components: {
-        ProductList
+        ProductList,
+        ProductFilter
     }
 })
 </script>

@@ -19,7 +19,7 @@
 </style>
 
 <script>
-
+import axios from 'axios'
 import ProductItem from 'components/product/ProductItem.vue'
 
 export default {
@@ -27,9 +27,13 @@ export default {
     components: {
         ProductItem
     },
+    mounted() {
+        this.listadoProductos()
+    },
     data() {
         return {
-            productos: [
+            productos: [],
+            productos1: [
                 {
                     "id": 1,
                     "description": "Samsung Galaxy 23",
@@ -54,6 +58,26 @@ export default {
                         "description": "Celulares"
                     }
                 }]
+        }
+    },
+    methods: {
+        listadoProductos() {
+            var url = 'http://localhost:5211/api/Product'
+            var token = JSON.parse(localStorage.getItem("userResult")).token
+            console.log("Token: " + token)
+            axios
+                .get(url, {
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                })
+                .then(response => {
+                    console.log(JSON.stringify(response.data))
+                    this.productos = response.data
+                }).catch(error => {
+                    this.$router.push("/")
+                })
+
         }
     }
 
